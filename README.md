@@ -1,2 +1,3 @@
-# modulo-2-evaluacion-final-beatriz-perez
-modulo-2-evaluacion-fina-beatriz-perez 
+# Módulo 2 - Evaluacion Final - Beatriz Perez
+
+Aplicación web de búsqueda de series de TV, que nos permite des/marcar las series como favoritas y guardarlas en local storage.
