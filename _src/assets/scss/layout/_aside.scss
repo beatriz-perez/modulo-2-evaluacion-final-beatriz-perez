@@ -4,4 +4,24 @@
 
 .container__section--aside{
     width: 100%;
+    height: $mainSectionHeight;
+    overflow: scroll; // En movil querremos que sea hidden para que se vea todo el listado !!!!!!
 }
+
+.aside__favList{
+    &--card{
+        margin: 5px;
+        border-radius: 10px;
+        box-shadow: 0 0 3px 0 black;
+        padding: 5px;
+        .aside__favList--title{
+            text-align: center;
+        }
+        .aside__favList--image{
+            height: 100px;
+            border-radius: 10px;
+        }    
+    }
+}
+
+
