@@ -20,8 +20,10 @@ let favShows = []; // constante preparada para recibir elementos añadidos con p
 
 // Al cargar la página -----------------------------------------------------------------------------
 const savedFavs = JSON.parse(localStorage.getItem('favShows'));
-for(let fav of savedFavs){
-  addFavourite(fav);
+if (savedFavs !== null) {
+  for(let fav of savedFavs){
+    addFavourite(fav);
+  }
 }
 // ACCIONES ****************************************************************************************
 
