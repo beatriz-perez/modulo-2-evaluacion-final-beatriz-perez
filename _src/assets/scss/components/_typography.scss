@@ -1,0 +1,18 @@
+
+// TITLES
+.text__header--title{
+    font-family: 'Titan One', cursive;
+    color: $colorTextLight;
+    font-size: 20px;
+    line-height: 25px;
+    text-align: left;
+    text-transform: capitalize;
+    @include mediaSize(tablet){
+        font-size: 30px;
+        line-height: 40px;
+        }
+    @include mediaSize(desktop){
+        font-size: 40px;
+        line-height: 50px;
+    }
+}
