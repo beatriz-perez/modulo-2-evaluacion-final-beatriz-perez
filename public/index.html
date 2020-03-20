@@ -22,8 +22,8 @@
                 show finder
             </h1>
 
-                        <form class="header__form">
-                            <input id="showName" class="header__form--showName" type="text" name="showName"
+                        <form id="searchForm" class="header__form">
+                            <input id="searchInput" class="header__form--showName" type="text" name="showName"
                             placeholder="título de la serie">
                             <input id="searchButton" class="header__form--searchButton" type="submit"
                             value="buscar">
@@ -37,7 +37,7 @@
                         <div class="container__section--aside">
                              <h2>favoritos</h2>
 
-                            <ul class="aside__favList"></ul>
+                            <ul id="favList" class="aside__favList"></ul>
                         </div>
                     </div>
                 </aside>
@@ -46,7 +46,7 @@
                         <div class="container__section--main">
                              <h2>resultados de tu búsqueda</h2>
 
-                            <ul class="main__resultsList"></ul>
+                            <ul id="searchResultsList" class="main__resultsList"></ul>
                         </div>
                     </div>
                 </main>
