@@ -5,7 +5,7 @@
 .container__section--main{
     width: 100%;
     height: $mainSectionHeight;
-    overflow: scroll;
+    overflow: scroll; // En movil querremos que sea hidden para que se vea todo el listado !!!!!!
 }
 
 .main__resultsList--title{
@@ -26,5 +26,13 @@
         border-radius: 10px;
         margin-left: 20px;
         margin-bottom: 20px;
+        &:hover {
+            box-shadow: 0 0 3px 0 black;
+        }
     }
+}
+
+.main__favShowStyle{
+    color: $colorWhite;
+    background-color: $colorBlack;
 }
