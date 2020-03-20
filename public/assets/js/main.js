@@ -6,9 +6,10 @@ const searchInput = document.getElementById('searchInput');
 const searchButton = document.getElementById('searchButton');
 
 // DATOS DE PARTIDA
-const urlShowSearchBase = 'http://api.tvmaze.com/search/shows?q='
+const urlShowSearchBase = 'http://api.tvmaze.com/search/shows?'
 
 // RESULTADOS
+const searchResultsIntro = document.getElementById('searchResultsIntro');
 const searchResultsList = document.getElementById('searchResultsList');
 const favList = document.getElementById('favList');
 
@@ -16,11 +17,13 @@ let searchResultShows = null; // constante preparada para recibir resultados
 let favSows = null;
 
 
-// ACCIONES
+// ACCIONES ****************************************************************************************
+
 function renderSearchResultShows (show) {
   //LI
   const resultCard = document.createElement('li');
   resultCard.id = show.show.id;
+  resultCard.classList.add('main__resultsList--card')
   searchResultsList.appendChild(resultCard);
   //TITLE
   const resultCardTitle = document.createElement('p');
@@ -34,26 +37,39 @@ function renderSearchResultShows (show) {
   resultCard.appendChild(resultCardImage);
 }
 
-function showNameSearch () {
+
+function countResults (count, text) {
+  searchResultsIntro.innerHTML = '';
+  const searchResultsIntroContent = document.createTextNode(
+    `Te mostramos ${count} resultados que contienen "${text}"`
+  );
+  searchResultsIntro.appendChild(searchResultsIntroContent);
+}
+
+
+function showSearchByName () {
     let query = searchInput.value;
-    fetch(urlShowSearchBase + query)
+    fetch(`${urlShowSearchBase}q=${query}`)
     .then(function(response) {
+      if (!response.ok) {throw response;}
       return response.json();
     })
     .then(function(data) {
-        searchResultShows = data;
-        console.log('resultados', searchResultShows);
+      searchResultShows = data;  //******************************** <------------  OJO ! Acumulador mejor
+      countResults(searchResultShows.length, query);  // Ejecutamos el contador 1 vez
+      for (let show of searchResultShows){
+        renderSearchResultShows(show);                // Ejecutamos el renderizador en bucle, por resultado
+      }
+    })
+    .catch(error => console.log(`Ha sucedido un error: ${error}`));
+};
 
-        for(let show of searchResultShows){
-          renderSearchResultShows(show);
-          }
-    });
-}
+
 
 function handleSearchButton (event) {
   event.preventDefault();
-  searchResultsList.innerHTML = '';
-  showNameSearch();
+  searchResultsList.innerHTML = ''; //******************************** <------------  OJO !
+  showSearchByName();
   searchForm.reset();
 }
 
