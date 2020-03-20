@@ -18,7 +18,15 @@ let searchResultShows = null; // constante preparada para recibir resultados del
 let favShows = []; // constante preparada para recibir elementos añadidos con push
 
 
+// Al cargar la página -----------------------------------------------------------------------------
+const savedFavs = JSON.parse(localStorage.getItem('favShows'));
+if (savedFavs !== null) {
+  for(let fav of savedFavs){
+    addFavourite(fav);
+  }
+}
 // ACCIONES ****************************************************************************************
+
 function addFavToPannel (newFav) {
   //LI
   const favCard = document.createElement('li');
@@ -52,9 +60,10 @@ function getFavInfo (id) {
   .catch(error => console.log(`Ha sucedido un error: ${error}`));
 
 };
-function addFavourite (id) {
+function addFavourite (id) { //Añadimos cada nuevo favorito tanto al listado como a localStorage
   if (parseInt(favShows.indexOf(id)) === (-1)) {
     favShows.push(id);
+    localStorage.setItem('favShows', JSON.stringify(favShows));
     getFavInfo(id);
     } else {
       console.log('ya está en favoritos')
@@ -64,6 +73,7 @@ function addFavourite (id) {
 function changeCardStyle (id) {
   document.getElementById(id).classList.add('main__favShowStyle');
 }
+
 
 function renderSearchResultShows (show) {
   //LI
@@ -88,7 +98,6 @@ function renderSearchResultShows (show) {
   resultCard.addEventListener('click', function(){addFavourite(resultCard.id); changeCardStyle(resultCard.id)});
 }
 
-
 function countResults (count, text) {
   searchResultsIntro.innerHTML = '';
   const searchResultsIntroContent = document.createTextNode(
@@ -96,7 +105,6 @@ function countResults (count, text) {
   );
   searchResultsIntro.appendChild(searchResultsIntroContent);
 }
-
 
 function showSearchByName () {
     let query = searchInput.value;
@@ -115,8 +123,6 @@ function showSearchByName () {
     .catch(error => console.log(`Ha sucedido un error: ${error}`));
 };
 
-
-
 function handleSearchButton (event) {
   event.preventDefault();
   searchResultsList.innerHTML = '';
@@ -126,6 +132,3 @@ function handleSearchButton (event) {
 
 searchButton.addEventListener('click', handleSearchButton);
 
-/*
-
-*/
