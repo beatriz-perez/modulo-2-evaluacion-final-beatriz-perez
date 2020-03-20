@@ -50,6 +50,10 @@ a {
   text-transform: capitalize;
 }
 
+.text__base {
+  font-family: 'Raleway', sans-serif;
+}
+
 .container__general {
   padding-left: 1rem;
   padding-right: 1rem;
