@@ -8,15 +8,56 @@
         <title>beatriz's test</title>
         <link rel="icon" type="image/png" href="favicon.png"
         />
+        <link href="https://fonts.googleapis.com/css?family=Raleway:400,700|Titan+One&display=swap"
+        rel="stylesheet">
         <link rel="stylesheet" href="./assets/css/main.css" />
     </head>
     
     <body>
         <div class="page">
-            <header class="page__header">Header</header>
-            <main class="page__main">Main</main>
-            <main class="page__aside">Aside</main>
-            <main class="page__footer">Footer</main>
+            <header class="container__page--header" id="header" role="navigation">
+                <div class="container__general">
+                    <div class="container__section--header">
+                         <h1 class="header__title text__header--title">
+                show finder
+            </h1>
+
+                        <form class="header__form">
+                            <input id="showName" class="header__form--showName" type="text" name="showName"
+                            placeholder="título de la serie">
+                            <input id="searchButton" class="header__form--searchButton" type="submit"
+                            value="buscar">
+                        </form>
+                    </div>
+                </div>
+            </header>
+            <div class="container__grid">
+                <aside class="container__page--aside" id="aside" role="complementary">
+                    <div class="container__general container__general--left">
+                        <div class="container__section--aside">
+                             <h2>favoritos</h2>
+
+                            <ul class="aside__favList"></ul>
+                        </div>
+                    </div>
+                </aside>
+                <main class="container__page--main" id="main" role="main">
+                    <div class="container__general container__general--right">
+                        <div class="container__section--main">
+                             <h2>resultados de tu búsqueda</h2>
+
+                            <ul class="main__resultsList"></ul>
+                        </div>
+                    </div>
+                </main>
+            </div>
+            <footer class="container__page--footer" id="footer" role="contentinfo">
+                <div class="container__general">
+                    <div class="container__section--footer">
+                        <p>footer</p>
+                    </div>
+                </div>
+            </footer>
         </div>
         <script type="text/javascript" src="./assets/js/main.js"></script>
     </body>
