@@ -87,7 +87,9 @@ function addOrRemoveFavourite(id) { //Añadimos cada nuevo favorito tanto al lis
 };
 
 function changeCardStyle(id) {
-  document.getElementById(id).classList.toggle('main__favShowStyle');
+  if(document.getElementById(id) !== null){
+    document.getElementById(id).classList.toggle('main__favShowStyle');
+  }
 }
 
 //Gestión de resultados de BÚSQUEDA ------------------------------------
