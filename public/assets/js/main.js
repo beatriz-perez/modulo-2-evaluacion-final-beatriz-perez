@@ -1,11 +1,25 @@
 'use strict';
 
-// CONTROLES
+
+// CONTROLES --------------------------------------------------
+
+//fijos
 const searchForm = document.getElementById('searchForm');
 const searchInput = document.getElementById('searchInput');
 const searchButton = document.getElementById('searchButton');
 
-// DATOS DE PARTIDA
+//dinámicos
+//************************************************ <--------  OJO incluir showCard y x en favCard
+
+const clearFavPannel = document.createElement('button');
+const clearFavPannelContent = document.createTextNode('vaciar favoritos');
+clearFavPannel.appendChild(clearFavPannelContent);
+clearFavPannel.addEventListener('click', function(){emptyFavPannel()});
+/*el botón se añadirá: a. si al cargar la página existen favoritos b. si no hay favoritos y añadimos uno
+el botón se borrará si  a. eliminamos el último favorito b. hacemos click en él*/
+
+
+// DATOS DE PARTIDA ---------------------------------------------
 const urlShowSearchByName = 'http://api.tvmaze.com/search/shows?';
 const urlShowSearchById = 'http://api.tvmaze.com/shows/';
 
@@ -15,21 +29,29 @@ const searchResultsList = document.getElementById('searchResultsList');
 const favListIntro = null;  //************************************************ <--------  OJO por definir
 const favList = document.getElementById('favList');
 
-let searchResultShows = null; // constante preparada para recibir resultados del servidor
-let favShows = []; // constante preparada para recibir elementos añadidos con push
+let searchResultShows = null; // recibe resultados del servidor
+let favShows = []; // recibe elementos añadidos con push
 
 
-// Al cargar la página -----------------------------------------------------------------------------
-// Revisión de info en local storage y aplicación:
+// Al cargar la página --------------------------------------------
 
 const savedFavs = JSON.parse(localStorage.getItem('favShows'));
-if (savedFavs !== null) {
+if (savedFavs !== null && savedFavs.length !== 0) {
+  favList.appendChild(clearFavPannel);
   savedFavs.map(fav => addOrRemoveFavourite(fav));
 }
+
 
 // ACCIONES ****************************************************************************************
 
 //Gestión de FAVORITOS ------------------------------------
+
+function emptyFavPannel () {
+favShows.map(fav => changeCardStyle(fav)); // cambio de estilo
+const FavsToRemove = favShows.map(fav => fav); //copiamos los favoritos
+FavsToRemove.reverse(); // damos la vuelta a la copia de favoritos para recorrerlos desde último a primero
+FavsToRemove.map(fav => addOrRemoveFavourite(fav));
+};
 
 function renderFav(newFav) {
   //LI
@@ -79,9 +101,15 @@ function addOrRemoveFavourite(id) { //Añadimos cada nuevo favorito tanto al lis
   if (parseInt(favShows.indexOf(id)) === (-1)) {
     favShows.push(id);
     getFavInfo(id);
+    if (favList.innerHTML.length ===0) {
+      favList.appendChild(clearFavPannel);
+    }
   } else {
     favShows.splice(parseInt(favShows.indexOf(id)), 1);
     document.getElementById(id + 'FAV').remove();
+    if (favShows.length<1){
+      favList.removeChild(clearFavPannel);
+    }
   }
   localStorage.setItem('favShows', JSON.stringify(favShows));
 };
@@ -116,7 +144,7 @@ function renderSearchResultShows(show) {
   // make card react on clicks
   resultCard.addEventListener('click', function () { 
     addOrRemoveFavourite(resultCard.id); 
-    changeCardStyle(resultCard.id) 
+    changeCardStyle(resultCard.id)
   });
 }
 
