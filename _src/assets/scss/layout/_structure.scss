@@ -5,30 +5,30 @@
         padding-left: 2rem;
         padding-right: 2rem;
         &--left{
-            padding-right: 0;
+            padding-right: 1rem;
         }
         &--right{
-            padding-left: 0;
+            padding-left: 1rem;
         }    
     }
     @include mediaSize(desktop){
         padding-left: 3rem;
         padding-right: 3rem;
         &--left{
-            padding-right: 1rem;
+            padding-right: 1.5rem;
         }
         &--right{
-            padding-left: 1rem;
+            padding-left: 1.5rem;
         }    
     } 
 }
 
 .container__grid{
     width: 100%;
-    height: $mainSectionHeight;
     @include mediaSize(tablet){
+        height: $mainSectionHeightTablet;
         display: grid;
-        grid-template-columns: 20vw 1fr;
+        grid-template-columns: 25vw 1fr;
         grid-template-rows: 1fr;
         grid-gap: 0;
         .grid__element--1{
@@ -41,6 +41,8 @@
         }
     }
     @include mediaSize(desktop){
+        height: $mainSectionHeightDesktop;
+        grid-template-columns: 350px 1fr;
     }
 }
 

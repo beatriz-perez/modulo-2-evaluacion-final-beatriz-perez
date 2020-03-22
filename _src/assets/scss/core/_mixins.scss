@@ -6,3 +6,11 @@
       @media (min-width: 1280px) { @content; }
     } 
 }
+
+// ABSOLUTE CENTERING
+@mixin centerAll {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}

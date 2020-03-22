@@ -1,38 +1,93 @@
 .container__page--main{
-    background-color: $colorTheme5;
+    background-color: $colorWhite;
 }
-
 .container__section--main{
     width: 100%;
-    height: $mainSectionHeight;
-    overflow: scroll; // En movil querremos que sea hidden para que se vea todo el listado !!!!!!
+    @include mediaSize(tablet){
+        height: $mainSectionHeightTablet;
+        overflow: scroll;
+    }
+    @include mediaSize(desktop){
+        height: $mainSectionHeightDesktop;
+    }
 }
 
-.main__resultsList--title{
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+.main__title{
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+.main__instructions{
+    margin-bottom: 20px;
 }
 
 .main__resultsList{
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: flex-start;
-    align-items: flex-start;
-    flex-wrap: wrap;
+    align-items: center;
+    @include mediaSize(tablet){
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
     &--card{
-        border: 1px solid black;
-        padding: 5px;
-        border-radius: 10px;
-        margin-left: 20px;
-        margin-bottom: 20px;
+        box-shadow: 0 0 4px 0 $colorTheme4;
+        border-radius: 18px;
+        padding: 12px;
+        margin: 10px;
         &:hover {
             box-shadow: 0 0 3px 0 black;
         }
     }
+    &--title{
+        margin-bottom: 7px;
+        height: 2.5em;
+        max-width: 190px;
+        overflow: hidden;
+        text-align: start;
+    }
+    &--image{
+        border-radius: 12px;
+    }
+}
+.main__favShowStyle{
+    background-color: $colorBlack;
 }
 
-.main__favShowStyle{
-    color: $colorWhite;
-    background-color: $colorBlack;
+// Selected Show Info Results ------------------------------
+.mainInfo__showContent{
+    margin: 15px;
+    padding: 20px;
+    box-shadow: 3px 3px 5px 0 $colorTheme4;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: row;
+    &--image{
+        max-height: 562px;
+        border-radius: 20px;
+        margin-right: 20px;
+    }
+    &--text{
+        display: flex;
+        flex-direction: column;
+    
+        &-title{
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        &-rating{
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        &-summary{
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        &-officialSite{
+            width: 100%;
+        }  
+    }
 }

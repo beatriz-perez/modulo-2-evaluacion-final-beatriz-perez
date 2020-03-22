@@ -1,8 +1,18 @@
 .container__page--footer{
     width: 100vw;
-    height: $footerHeight;
-    background-color: $colorTheme3;
+    height: $footerHeightTablet;
+    background-color: $colorWhite;
+    @include mediaSize(desktop){
+        height: $footerHeightDesktop;
+    }
 }
 .container__section--footer{
     width: 100%;
+    height: $footerHeightTablet;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include mediaSize(desktop){
+        height: $footerHeightDesktop;
+    }
 }
