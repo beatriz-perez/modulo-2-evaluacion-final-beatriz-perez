@@ -341,19 +341,21 @@ a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .mainInfo__showContent--image {
-  max-height: 562px;
+  width: 100%;
+  height: auto;
   border-radius: 20px;
-  margin-right: 20px;
+  margin: 0 auto 20px auto;
 }
 
 .mainInfo__showContent--text {
+  margin-left: 15px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -711,6 +713,21 @@ a {
 
   .container__section--main {
     height: 75vh;
+  }
+
+  .mainInfo__showContent {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    padding: 30px;
+    margin: 20px;
+  }
+
+  .mainInfo__showContent--image {
+    width: 40%;
+    border-radius: 20px;
+    margin-right: 20px;
   }
 
   .container__section--aside {

@@ -64,16 +64,27 @@
     box-shadow: 3px 3px 5px 0 $colorTheme4;
     border-radius: 30px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    @include mediaSize(desktop){
+        flex-direction: row;
+        padding: 30px;
+        margin: 20px;
+    }
     &--image{
-        max-height: 562px;
+        width: 100%;
+        height: auto; 
         border-radius: 20px;
-        margin-right: 20px;
+        margin: 0 auto 20px auto;
+        @include mediaSize(desktop){
+            width: 40%;
+            border-radius: 20px;
+            margin-right: 20px;
+        }    
     }
     &--text{
+        margin-left: 15px;
         display: flex;
         flex-direction: column;
-    
         &-title{
             width: 100%;
             margin-bottom: 10px;
