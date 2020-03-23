@@ -1,6 +1,5 @@
 'use strict';
 
-
 // CONTROLES --------------------------------------------------
 
 //fijos
@@ -9,35 +8,38 @@ const searchInput = document.getElementById('searchInput');
 const searchButton = document.getElementById('searchButton');
 
 //dinámicos
-//************************************************ <--------  OJO incluir showCard y x en favCard
 
 const clearFavPannel = document.createElement('button');
 clearFavPannel.classList.add('aside__favList--clearButton', 'button__lightLong', 'text__lightButton');
 const clearFavPannelContent = document.createTextNode('vaciar favoritos');
 clearFavPannel.appendChild(clearFavPannelContent);
-clearFavPannel.addEventListener('click', function(){emptyFavPannel()});
+clearFavPannel.addEventListener('click', function () { emptyFavPannel() });
 /*el botón se añadirá: a. si al cargar la página existen favoritos b. si no hay favoritos y añadimos uno
 el botón se borrará si  a. eliminamos el último favorito b. hacemos click en él*/
 
 
 // DATOS DE PARTIDA ---------------------------------------------
+
 const urlShowSearchByName = 'http://api.tvmaze.com/search/shows?';
 const urlShowSearchById = 'http://api.tvmaze.com/shows/';
 
-// RESULTADOS
+// RESULTADOS ---------------------------------------------------
+
 const mainSection = document.querySelector('.mainSection');
 
 const searchResultsIntro = document.getElementById('searchResultsIntro');
 const searchResultsInstructions = document.getElementById('searchResultsInstructions');
 const alertText = document.getElementById('alerText');
-const searchResultsList = document.getElementById('searchResultsList');
-const favListIntro = null;  //************************************************ <--------  OJO por definir
-const favList = document.getElementById('favList');
 
+const searchResultsList = document.getElementById('searchResultsList');
 let searchResultShows = null; // recibe resultados del servidor
+
+const favList = document.getElementById('favList');
 let favShows = []; // recibe elementos añadidos con push
 
 const showInfoBox = document.getElementById('showInfo');
+
+
 
 // Al cargar la página --------------------------------------------
 
@@ -48,15 +50,15 @@ if (savedFavs !== null && savedFavs.length !== 0) {
 }
 
 
-// ACCIONES ****************************************************************************************
+// ACCIONES ------------------------------------------------------------------------------------------------
 
 //Gestión de FAVORITOS ------------------------------------
 
-function emptyFavPannel () {
-favShows.map(fav => changeCardStyle(fav)); // cambio de estilo
-const FavsToRemove = favShows.map(fav => fav); //copiamos los favoritos
-FavsToRemove.reverse(); // damos la vuelta a la copia de favoritos para recorrerlos desde último a primero
-FavsToRemove.map(fav => addOrRemoveFavourite(fav));
+function emptyFavPannel() {
+  favShows.map(fav => changeCardStyle(fav));
+  const FavsToRemove = favShows.map(fav => fav);
+  FavsToRemove.reverse();
+  FavsToRemove.map(fav => addOrRemoveFavourite(fav));
 };
 
 
@@ -74,28 +76,28 @@ function getFavInfo(id) {
 
 };
 
-function addOrRemoveFavourite(id) { //Añadimos cada nuevo favorito tanto al listado como a localStorage
+function addOrRemoveFavourite(id) {
   alertText.innerHTML = '';
   if (parseInt(favShows.indexOf(id)) === (-1)) {
-    if (favShows.length >= 10 ) {
+    if (favShows.length >= 10) {
       window.location = '#';
-      mainSection.scroll(0,0);
+      mainSection.scroll(0, 0);
       const alertTextContent = document.createTextNode(
         '* Tu listado de favoritos está completo. Por favor, elimina alguno antes de añadir uno nuevo.'
       );
       alertText.appendChild(alertTextContent);
-      changeCardStyle(id); 
+      changeCardStyle(id);
     } else {
       favShows.push(id);
       getFavInfo(id);
-      if (favList.innerHTML.length ===0) {
+      if (favList.innerHTML.length === 0) {
         favList.appendChild(clearFavPannel);
       }
     }
   } else {
     favShows.splice(parseInt(favShows.indexOf(id)), 1);
     document.getElementById(id + 'FAV').remove();
-    if (favShows.length<1){
+    if (favShows.length < 1) {
       favList.removeChild(clearFavPannel);
     }
   }
@@ -103,7 +105,7 @@ function addOrRemoveFavourite(id) { //Añadimos cada nuevo favorito tanto al lis
 };
 
 function changeCardStyle(id) {
-  if(document.getElementById(id) !== null){
+  if (document.getElementById(id) !== null) {
     document.getElementById(id).classList.toggle('main__favShowStyle');
     document.getElementById(id).children[0].classList.toggle('text__card--titleFav');
   }
@@ -133,10 +135,10 @@ function showSearchByName() {
       return response.json();
     })
     .then(function (data) {
-      searchResultShows = data;  //******************************** <---- para ver más páginas: acumulador
-      countResults(searchResultShows.length, query);  // Ejecutamos el contador 1 vez
+      searchResultShows = data;
+      countResults(searchResultShows.length, query);
       for (let show of searchResultShows) {
-        renderSearchResultShows(show);                // Ejecutamos el renderizador en bucle, por resultado
+        renderSearchResultShows(show);
       }
     })
     .catch(error => console.log(`Ha sucedido un error: ${error}`));
