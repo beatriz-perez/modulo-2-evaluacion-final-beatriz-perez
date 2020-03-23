@@ -145,6 +145,8 @@ function showSearchByName() {
 function handleSearchButton(event) {
   event.preventDefault();
   searchResultsList.innerHTML = '';
+  alertText.innerHTML = '';
+  showInfoBox.innerHTML = '';
   if (searchInput.value.length !== 0) {
     showSearchByName();
   }
