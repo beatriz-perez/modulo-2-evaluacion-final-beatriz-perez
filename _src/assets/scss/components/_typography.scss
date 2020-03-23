@@ -1,27 +1,136 @@
 
 // TITLES
-.text__header--title{
-    font-family: 'Titan One', cursive;
-    color: $colorTextLight;
-    font-size: 20px;
-    line-height: 25px;
+.text__SITE--title{
+    font-family: $fontBig;
+    color: $colorTransparent;
+    background-image: url('https://cdn.pixabay.com/photo/2016/06/02/02/33/triangles-1430105__340.png');
+    background-size: cover;
+    background-clip: text;
+    font-size: 40px;
+    line-height: 40px;
     text-align: left;
     text-transform: capitalize;
     @include mediaSize(tablet){
-        font-size: 30px;
-        line-height: 40px;
+        font-size: 60px;
+        line-height: 60px;
+    }
+}
+.text__section--title{
+    font-family: 'Raleway', sans-serif;
+    color: $colorTextBase;
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: 700;
+    text-transform: none;
+    @include mediaSize(tablet){
+        font-size: 16px;
+        line-height: 16px;
         }
     @include mediaSize(desktop){
-        font-size: 40px;
-        line-height: 50px;
+        font-size: 20px;
+        line-height: 20px;
+    }
+}
+.text__card--title{
+    font-family: 'Raleway', sans-serif;
+    color: $colorTextBase;
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 700;
+    text-align: end;
+    text-transform: none;
+    @include mediaSize(tablet){
+        text-align: start;
+        font-size: 16px;
+        line-height: 18px;
+    }
+    @include mediaSize(desktop){
+        text-align: end;
+        max-height: 36px;
+    }
+    &Fav{
+        color: $colorTextLight;
     }
 }
 
 // TEXTS
-.text__mainSearch--resultsIntro{
-    
-}
 .text__base{
     font-family: 'Raleway', sans-serif;
+    font-size: 12px;
+    line-height: 12px;
+    @include mediaSize(tablet){
+        font-size: 14px;
+        line-height: 14px;
+    }
+    @include mediaSize(desktop){
+        font-size: 14px;
+        line-height: 14px;
+    }
+}
+.text__alert{
+    font-family: 'Raleway', sans-serif;
+    font-size: 12px;
+    line-height: 12px;
+    color: $colorTextAlert;
+    font-weight: 700;
+    @include mediaSize(tablet){
+        font-size: 14px;
+        line-height: 14px;
+    }
+    @include mediaSize(desktop){
+        font-size: 14px;
+        line-height: 14px;
+    }
+}
 
+
+.text__footer{
+    font-family: 'Raleway', sans-serif;
+    color: $colorTextBase;
+    font-size: 10px;
+    line-height: 10px;
+    font-weight: 400;
+    text-transform: none;
+    &--link{
+        font-weight: 700;
+        text-transform: capitalize;
+    }
+    @include mediaSize(tablet){
+        font-size: 12px;
+        line-height: 12px;
+        }
+    @include mediaSize(desktop){
+        font-size: 14px;
+        line-height: 14px;
+    }
+}
+
+// BUTTON TEXTS
+
+.text__input{
+    font-family: 'Raleway', sans-serif;
+    color: $colorTextMiddle;
+    font-size: 12px;
+    line-height: 12px;
+    font-weight: 400;
+    text-align: center;
+    text-transform: none;
+}
+.text__greyButton{
+    font-family: 'Raleway', sans-serif;
+    color: $colorTextLight;
+    font-size: 12px;
+    line-height: 12px;
+    font-weight: 400;
+    text-align: center;
+    text-transform: none;
+}
+.text__lightButton{
+    font-family: 'Raleway', sans-serif;
+    color: $colorTextMiddle;
+    font-size: 12px;
+    line-height: 12px;
+    font-weight: 700;
+    text-align: center;
+    text-transform: none;
 }

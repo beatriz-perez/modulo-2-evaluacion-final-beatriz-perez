@@ -1,0 +1,59 @@
+// INPUTS
+.input__searchForm{
+    cursor: pointer;
+    height: 30px;
+    padding: 5px;
+    border: 2px solid $colorTheme3;
+    background-color: $colorWhite;
+    border-radius: 25px 25px 0 0;
+    box-shadow: 2px 2px 4px 0 $colorTheme4 inset;
+    &:focus {
+        outline: none;
+    }
+}
+
+// BUTTONS
+.button__searchForm{
+    cursor: pointer;
+    height: 30px;
+    padding: 5px;
+    border: 2px solid $colorTheme3;
+    background-color: $colorWhite;
+    border-radius: 0 0 25px 25px;
+    box-shadow: 2px 2px 4px 0 $colorTheme4;
+    &:focus {
+        outline: none;
+    }
+    &:active{
+        box-shadow: 2px 2px 4px 0 $colorTheme4 inset;
+    }
+}
+.button__grayRound{
+    cursor: pointer;
+    position: relative;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: $colorTheme4;
+    &--icon{
+        color: $colorTextLight;
+        font-size: 12px;
+        @include centerAll;
+    }
+}
+.button__grayLong{
+    cursor: pointer;
+    height: 18px;
+    width: 50px;
+    padding: 3px;
+    border-radius: 7.5px;
+    background-color: $colorTheme4;
+}
+.button__lightLong{
+    cursor: pointer;
+    height: 26px;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: $colorWhite;
+    box-shadow: 0 0 4px 0 $colorTheme4;
+}

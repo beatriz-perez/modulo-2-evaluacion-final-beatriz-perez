@@ -1,26 +1,118 @@
+// SECTION CONTAINERS
 .container__page--aside{
-    background-color: $colorTheme4;
+    background-color: $colorWhite;
 }
-
 .container__section--aside{
-    width: 100%;
-    height: $mainSectionHeight;
-    overflow: scroll; // En movil querremos que sea hidden para que se vea todo el listado !!!!!!
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    @include mediaSize(tablet){
+        width: 100%;
+        height: $mainSectionHeightTablet;
+        overflow: scroll;
+    }
+    @include mediaSize(desktop){
+        height: $mainSectionHeightDesktop;
+    }
 }
 
+//TITLE
+.aside__title{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+// FAVORITE CARDS
 .aside__favList{
+    min-height: 10px;
+    border: 2px solid $colorTheme3;
+    box-shadow: 0 0 4px 0 $colorTheme3 inset;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column-reverse;
+    &--clearButton{
+        margin: 10px;
+    }
     &--card{
-        margin: 5px;
+        margin: 10px;
         border-radius: 10px;
-        box-shadow: 0 0 3px 0 black;
-        padding: 5px;
-        .aside__favList--title{
-            text-align: center;
+        box-shadow: 0 0 4px 0 $colorTheme4;
+        padding: 7px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        @include mediaSize(tablet){
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;    
+        }
+        @include mediaSize(desktop){
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;    
         }
         .aside__favList--image{
             height: 100px;
             border-radius: 10px;
-        }    
+            margin-right: 5px;
+            @include mediaSize(tablet){
+                height: 140px;
+                margin-right: 0;
+                margin-top: 5px;
+            }
+            @include mediaSize(desktop){
+                height: 120px;
+                margin-right: 5px;
+                margin-top: 0px;
+            }
+        }
+        .aside__favList--infoBox{
+            height: 100px;
+            padding: 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-end;
+            @include mediaSize(tablet){
+                height: auto;
+                width: 100%;
+                justify-content: flex-start;
+                align-items: flex-start;
+            }
+            @include mediaSize(desktop){
+                height: 100px;
+                width: auto;
+                justify-content: space-between;
+                align-items: flex-end;
+            }
+            .aside__favList--infoBoxTexts{
+                height: 60px;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                align-items: flex-end;
+                @include mediaSize(tablet){
+                    height: auto;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    margin-bottom: 5px;
+                }
+                @include mediaSize(desktop){
+                    height: 60px;
+                    justify-content: flex-start;
+                    align-items: flex-end;
+                    margin-bottom: 0;
+                }    
+                .aside__favList--title{
+                    margin-bottom: 5px;
+                    max-height: 2.5em;
+                    overflow: hidden;
+                }
+            }
+        } 
     }
 }
 

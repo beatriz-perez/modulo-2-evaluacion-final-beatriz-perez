@@ -1,8 +1,48 @@
 .container__page--header{
     width: 100vw;
-    height: $headerHeight;
-    background-color: $colorTheme3;
+    background-color: $colorWhite;
+    @include mediaSize(tablet){
+        height: $headerHeightTablet;
+    }
+    @include mediaSize(desktop){
+        height: $headerHeightDesktop;
+    }
 }
 .container__section--header{
+    margin-top: 1rem;
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    @include mediaSize(tablet){
+        margin-top: 0;
+        height: $headerHeightTablet;
+    }
+    @include mediaSize(desktop){
+        height: $headerHeightDesktop;
+    }
+}
+
+.header__form{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    @include mediaSize(tablet){
+        height: $headerHeightTablet;
+    }
+    @include mediaSize(desktop){
+        height: $headerHeightDesktop;
+    }
+    &--showName{
+        margin-bottom: 3px;
+        width: 100%;
+        max-width: 300px;
+    }
+    &--searchButton{
+        width: 100%;
+        max-width: 300px;
+    }
 }

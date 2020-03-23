@@ -8,14 +8,26 @@ $colorTheme5: #DBDBDB;
 
 $colorWhite: white;
 $colorBlack: black;
+$colorTransparent: transparent;
 
 // TEXT COLORS
 
 $colorTextBase: $colorBlack;
+$colorTextMiddle: $colorTheme3;
 $colorTextLight: $colorWhite;
 
-// MEASUREMENTS
+$colorTextAlert: $colorTheme2;
 
-$headerHeight: 20vh;
-$mainSectionHeight: 75vh;
-$footerHeight: 5vh;
+// FONTS
+$fontBase: 'Raleway';
+$fontBig: 'Titan One';
+$fontButton: 'Raleway';
+
+// MEASUREMENTS
+$headerHeightTablet: 15vh;
+$mainSectionHeightTablet: 80vh;
+$footerHeightTablet: 5vh;
+
+$headerHeightDesktop: 20vh;
+$mainSectionHeightDesktop: 75vh;
+$footerHeightDesktop: 5vh;
