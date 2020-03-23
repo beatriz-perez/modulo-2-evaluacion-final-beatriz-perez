@@ -256,9 +256,10 @@ function renderFav(newFav) {
 };
 
 function showInfo(info) {
+
     //Vaciar sección de info previa
     clearMainPanel();
-    
+
     //Dirigir la web a la sección de info
     window.location = '#';
     mainSection.scroll(0, 0);
