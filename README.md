@@ -1,6 +1,6 @@
-### Módulo 2 - Evaluacion Final - Beatriz Perez
+# Módulo 2 - Evaluacion Final - Beatriz Perez
 
-# Aplicación web de búsqueda de series de TV, que nos permite des/marcar las series como favoritas y guardarlas en local storage.
+### Aplicación web de búsqueda de series de TV, que nos permite des/marcar las series como favoritas y guardarlas en local storage.
 
 Desarrollado como trabajo final del módulo 2 en Adalab.
 * información recogida de la api abierta de TVMaze.
@@ -19,7 +19,7 @@ Desde cada tarjeta de favoritos puedes **acceder a más información** acerca de
 
 ## Ver la versión online
 
-Este proyecto está publicado en GitHub Pages, en la url <>
+Este proyecto está publicado en GitHub Pages, en la url <http://beta.adalab.es/modulo-2-evaluacion-final-beatriz-perez/>
 
 ## Trabajar en local con los archivos de este proyecto
 

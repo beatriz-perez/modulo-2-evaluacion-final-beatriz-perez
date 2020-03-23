@@ -146,8 +146,10 @@ function showSearchByName() {
 
 function handleSearchButton(event) {
   event.preventDefault();
-  searchResultsList.innerHTML = '';
+  searchResultsIntro.innerHTML = '';
+  searchResultsInstructions.innerHTML = '';
   alertText.innerHTML = '';
+  searchResultsList.innerHTML = '';
   showInfoBox.innerHTML = '';
   if (searchInput.value.length !== 0) {
     showSearchByName();
@@ -289,14 +291,14 @@ function showInfo(info) {
     const showRating = document.createElement('p');
     showRating.classList.add('mainInfo__showContent--text-rating', 'text__base');
     showInfoText.appendChild(showRating);
-    const showRatingContent = document.createTextNode(info.rating.average);
+    const showRatingContent = info.rating.average !== null ? document.createTextNode(info.rating.average) : document.createTextNode('no hay información de puntuación');
     showRating.appendChild(showRatingContent);
 
     //SUMMARY
     const showSummary = document.createElement('p');
     showSummary.classList.add('mainInfo__showContent--text-summary', 'text__base');
     showInfoText.appendChild(showSummary);
-    showSummary.innerHTML = info.summary;
+    showSummary.innerHTML = info.summary !== null ? info.summary : 'no hay información de resumen';
 
     //OFFICIAL SITE
     const showOfficialSite = document.createElement('a');
@@ -304,7 +306,7 @@ function showInfo(info) {
     showInfoText.appendChild(showOfficialSite);
     showOfficialSite.href = info.officialSite;
     showOfficialSite.target = '_blank';
-    const showOfficialSiteContent = document.createTextNode(info.officialSite);
+    const showOfficialSiteContent = info.officialSite !== null ? document.createTextNode(info.officialSite) : document.createTextNode('no hay información de web oficial');
     showOfficialSite.appendChild(showOfficialSiteContent);
 
 };

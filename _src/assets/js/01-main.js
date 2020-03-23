@@ -146,8 +146,10 @@ function showSearchByName() {
 
 function handleSearchButton(event) {
   event.preventDefault();
-  searchResultsList.innerHTML = '';
+  searchResultsIntro.innerHTML = '';
+  searchResultsInstructions.innerHTML = '';
   alertText.innerHTML = '';
+  searchResultsList.innerHTML = '';
   showInfoBox.innerHTML = '';
   if (searchInput.value.length !== 0) {
     showSearchByName();
