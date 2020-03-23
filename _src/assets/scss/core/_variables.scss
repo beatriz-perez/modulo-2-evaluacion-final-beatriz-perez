@@ -1,0 +1,33 @@
+// THEME COLORS
+
+$colorTheme1: #FF299C;
+$colorTheme2: #EF27A6;
+$colorTheme3: #706F6F;
+$colorTheme4: #B0B5B3;
+$colorTheme5: #DBDBDB;
+
+$colorWhite: white;
+$colorBlack: black;
+$colorTransparent: transparent;
+
+// TEXT COLORS
+
+$colorTextBase: $colorBlack;
+$colorTextMiddle: $colorTheme3;
+$colorTextLight: $colorWhite;
+
+$colorTextAlert: $colorTheme2;
+
+// FONTS
+$fontBase: 'Raleway';
+$fontBig: 'Titan One';
+$fontButton: 'Raleway';
+
+// MEASUREMENTS
+$headerHeightTablet: 15vh;
+$mainSectionHeightTablet: 80vh;
+$footerHeightTablet: 5vh;
+
+$headerHeightDesktop: 20vh;
+$mainSectionHeightDesktop: 75vh;
+$footerHeightDesktop: 5vh;
