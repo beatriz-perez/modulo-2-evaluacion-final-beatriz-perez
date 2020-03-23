@@ -3,6 +3,8 @@
 // CONTROLES --------------------------------------------------
 
 //fijos
+const siteTitle = document.getElementById('siteTitle');
+
 const searchForm = document.getElementById('searchForm');
 const searchInput = document.getElementById('searchInput');
 const searchButton = document.getElementById('searchButton');
@@ -159,5 +161,7 @@ function handleSearchButton(event) {
   searchForm.reset();
 }
 
+
+siteTitle.addEventListener('click', function () {location.reload()});
 searchButton.addEventListener('click', handleSearchButton);
 
