@@ -13,7 +13,7 @@ const clearFavPannel = document.createElement('button');
 clearFavPannel.classList.add('aside__favList--clearButton', 'button__lightLong', 'text__lightButton');
 const clearFavPannelContent = document.createTextNode('vaciar favoritos');
 clearFavPannel.appendChild(clearFavPannelContent);
-clearFavPannel.addEventListener('click', function () { emptyFavPannel() });
+clearFavPannel.addEventListener('click', function () { emptyFavPanel() });
 /*el botón se añadirá: a. si al cargar la página existen favoritos b. si no hay favoritos y añadimos uno
 el botón se borrará si  a. eliminamos el último favorito b. hacemos click en él*/
 
@@ -52,9 +52,17 @@ if (savedFavs !== null && savedFavs.length !== 0) {
 
 // ACCIONES ------------------------------------------------------------------------------------------------
 
+function clearMainPanel() {
+  searchResultsIntro.innerHTML = '';
+  searchResultsInstructions.innerHTML = '';
+  alertText.innerHTML = '';
+  searchResultsList.innerHTML = '';
+  showInfoBox.innerHTML = '';
+}
+
 //Gestión de FAVORITOS ------------------------------------
 
-function emptyFavPannel() {
+function emptyFavPanel() {
   favShows.map(fav => changeCardStyle(fav));
   const FavsToRemove = favShows.map(fav => fav);
   FavsToRemove.reverse();
@@ -115,8 +123,6 @@ function changeCardStyle(id) {
 
 
 function countResults(count, text) {
-  searchResultsIntro.innerHTML = '';
-  searchResultsInstructions.innerHTML = '';
   const searchResultsIntroContent = document.createTextNode(
     `Tenemos ${count} resultados para tu búsqueda "${text}", ordenados por popularidad.`
   );
@@ -146,11 +152,7 @@ function showSearchByName() {
 
 function handleSearchButton(event) {
   event.preventDefault();
-  searchResultsIntro.innerHTML = '';
-  searchResultsInstructions.innerHTML = '';
-  alertText.innerHTML = '';
-  searchResultsList.innerHTML = '';
-  showInfoBox.innerHTML = '';
+  clearMainPanel();
   if (searchInput.value.length !== 0) {
     showSearchByName();
   }
@@ -255,11 +257,8 @@ function renderFav(newFav) {
 
 function showInfo(info) {
     //Vaciar sección de info previa
-    searchResultsIntro.innerHTML = '';
-    searchResultsInstructions.innerHTML = '';
-    alertText.innerHTML = '';
-    searchResultsList.innerHTML = '';
-    showInfoBox.innerHTML = '';
+    clearMainPanel();
+    
     //Dirigir la web a la sección de info
     window.location = '#';
     mainSection.scroll(0, 0);

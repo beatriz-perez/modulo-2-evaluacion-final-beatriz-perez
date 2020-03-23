@@ -1,10 +1,7 @@
 function showInfo(info) {
     //Vaciar sección de info previa
-    searchResultsIntro.innerHTML = '';
-    searchResultsInstructions.innerHTML = '';
-    alertText.innerHTML = '';
-    searchResultsList.innerHTML = '';
-    showInfoBox.innerHTML = '';
+    clearMainPanel();
+    
     //Dirigir la web a la sección de info
     window.location = '#';
     mainSection.scroll(0, 0);
