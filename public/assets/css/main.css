@@ -217,6 +217,10 @@ a {
   width: 100%;
 }
 
+.container__grid ::-webkit-scrollbar {
+  display: none;
+}
+
 .container__page--header {
   width: 100vw;
   background-color: white;
