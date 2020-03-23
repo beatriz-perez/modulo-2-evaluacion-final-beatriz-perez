@@ -25,6 +25,9 @@
 
 .container__grid{
     width: 100%;
+    ::-webkit-scrollbar {
+        display: none;
+    }
     @include mediaSize(tablet){
         height: $mainSectionHeightTablet;
         display: grid;
