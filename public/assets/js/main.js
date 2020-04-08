@@ -22,8 +22,8 @@ el botón se borrará si  a. eliminamos el último favorito b. hacemos click en 
 
 // DATOS DE PARTIDA ---------------------------------------------
 
-const urlShowSearchByName = 'http://api.tvmaze.com/search/shows?';
-const urlShowSearchById = 'http://api.tvmaze.com/shows/';
+const urlShowSearchByName = 'https://api.tvmaze.com/search/shows?';
+const urlShowSearchById = 'https://api.tvmaze.com/shows/';
 
 // RESULTADOS ---------------------------------------------------
 
