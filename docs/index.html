@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+    
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>beatriz's test: SHOW FINDER</title>
+        <link rel="icon" type="image/png" href="favicon.png"
+        />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        crossorigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css?family=Raleway:400,700|Titan+One&display=swap"
+        rel="stylesheet">
+        <link rel="stylesheet" href="./assets/css/main.css" />
+    </head>
+    
+    <body>
+        <div class="page">
+            <header class="container__page--header" id="header" role="navigation">
+                <div class="container__general">
+                    <div class="container__section--header">
+                         <h1 id="siteTitle" class="header__title text__SITE--title">
+                <a class="header__title--link" href="#" title="Show Finder">
+                    show<br>finder
+                </a>
+            </h1>
+
+                        <form id="searchForm" class="header__form">
+                            <input id="searchInput" class="header__form--showName input__searchForm text__input"
+                            type="text" name="showName" placeholder="título de la serie">
+                            <input id="searchButton" class="header__form--searchButton button__searchForm text__lightButton"
+                            type="submit" value="buscar">
+                        </form>
+                    </div>
+                </div>
+            </header>
+            <div class="container__grid">
+                <main class="container__page--main grid__element--2" id="main" role="main">
+                    <div class="container__general container__general--right">
+                        <div class="container__section--main mainSection">
+                            <div class="main__titleTextBox">
+                                 <h2 id="searchResultsIntro" class="main__title text__section--title"></h2>
+
+                                <p id="searchResultsInstructions" class="main__instructions text__base"></p>
+                                <p id="alerText" class="main__instructions text__alert"></p>
+                            </div>
+                            <ul id="searchResultsList" class="main__resultsList"></ul>
+                            <p id="showInfo" class="mainInfo__show"></p>
+                        </div>
+                    </div>
+                </main>
+                <aside class="container__page--aside grid__element--1" id="aside" role="complementary">
+                    <div class="container__general container__general--left">
+                        <div class="container__section--aside">
+                             <h2 class="aside__title text__section--title">tus series favoritas</h2>
+
+                            <ul id="favList" class="aside__favList"></ul>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+            <footer class="container__page--footer" id="footer" role="contentinfo">
+                <div class="container__general">
+                    <div class="container__section--footer">
+                        <p class="footer__text text__footer">code by <a class="footer__text--link text__footer text__footer--link" href="https://beatriz-perez.github.io/Index/"
+                            title="go to Beatriz's" target="_blank">
+                    beatriz
+                </a>
+
+                        </p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <script type="text/javascript" src="./assets/js/main.js"></script>
+    </body>
+
+</html>
